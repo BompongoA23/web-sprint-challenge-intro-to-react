@@ -14,16 +14,16 @@ function Character({character,planets}) { // ❗ Add the props
   // ❗ Create a state to hold whether the homeworld is rendering or not
   // ❗ Create a "toggle" click handler to show or remove the homeworld
   return (
-    <div className="character-card" style={{ border: '1px solid #ccc', margin: '10px', padding: '10px', borderRadius: '5px' }}>
-      <h3>{character.name}</h3>
-    { /* <p>Gender: {character.gender}</p>*/}
-    { /* <p>Birth Year: {character.birth_year}</p>*/}
-      <button onClick={toggleHomeworld}>
-        {showHomeworld ? 'Hide Homeworld' : 'Show Homeworld'}
-      </button>
-      {showHomeworld && <p>Homeworld: {homeworldName}</p>}
-      {/* Use the same markup with the same attributes as in the mock */}
-    </div>
+    <div 
+    className="character-card" 
+    style={{ border: '1px solid #ccc', margin: '10px', padding: '10px', borderRadius: '5px' }} 
+    onClick={toggleHomeworld} // Toggle the planet display on click
+  >
+    <h3>{character.name}</h3>
+    <p>Gender: {character.gender}</p>
+    <p>Birth Year: {character.birth_year}</p>
+    {showHomeworld && <p>Homeworld: {homeworldName}</p>}  {/* Conditionally render homeworld name */}
+  </div>
   )
 } 
 

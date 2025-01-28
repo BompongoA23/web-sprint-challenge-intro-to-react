@@ -17,7 +17,7 @@ function App() {
       .get(urlPeople)
       .then((response) => {
         setCharacters(response.data);
-        console.log('Fetched Characters:', response.data); // Log the characters data
+        console.log('Fetched Characters:', response.data); 
       })
       .catch((error) => setError(`Error fetching characters: ${error.message}`));
   }, []);
@@ -27,7 +27,7 @@ function App() {
       .get(urlPlanets)
       .then((response) => {
         setPlanets(response.data);
-        console.log('Fetched Planets:', response.data); // Log the planets data
+        console.log('Fetched Planets:', response.data); 
       })
       .catch((error) => setError(`Error fetching planets: ${error.message}`));
   }, []);
