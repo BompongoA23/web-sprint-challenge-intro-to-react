@@ -10,7 +10,7 @@ function App() {
   // ❗ Create effects to fetch the data and put it in state
   const[characters,setCharacters]=useState([]);
   const[planets,setPlanets]=useState([]);
-  const[error,setError]=useState(null);
+  const[error, setError]=useState(null)
 
   useEffect(() => {
     axios

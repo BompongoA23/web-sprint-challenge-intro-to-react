@@ -6,7 +6,7 @@ function Character({character,planets}) { // ❗ Add the props
   console.log("Character's Homeworld URL:", character.homeworld);
   console.log("Planets Array:", planets);
 
-  const homeworldName = planets.find(planet => planet.url === character.homeworld)?.name || 'Unknown';
+  const homeworldName = planets.find(planet => planet.id === character.homeworld)?.name || 'Unknown';
   
   const toggleHomeworld = () => {
     setShowHomeworld(prevState => !prevState);
