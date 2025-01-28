@@ -9,15 +9,37 @@ function App() {
   // ❗ Create state to hold the data from the API
   // ❗ Create effects to fetch the data and put it in state
   const[characters,setCharacters]=useState([]);
-  const[planets,usePlantes]=useState([]);
-  const[error,useErrors]=useState(null);
+  const[planets,setPlanets]=useState([]);
+  const[error,setError]=useState(null);
+
+  useEffect(() => {
+    axios
+      .get(urlPeople)
+      .then((response) => {
+        setCharacters(response.data);
+        console.log('Fetched Characters:', response.data); // Log the characters data
+      })
+      .catch((error) => setError(`Error fetching characters: ${error.message}`));
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get(urlPlanets)
+      .then((response) => {
+        setPlanets(response.data);
+        console.log('Fetched Planets:', response.data); // Log the planets data
+      })
+      .catch((error) => setError(`Error fetching planets: ${error.message}`));
+  }, []);
+
+      
   return (
     <div>
       <h2>Star Wars Characters</h2>
       <p>See the README of the project for instructions on completing this challenge</p>
       {/* ❗ Map over the data in state, rendering a Character at each iteration */
       characters.map((character) => (
-          <Character key={character.id} character={character} planets={planets} />
+          <Character key={character.name} character={character} planets={planets} />
         ))}
     </div>
   )
