@@ -3,8 +3,8 @@ import React, {useState} from 'react'
 function Character({character,planets}) { // ❗ Add the props
   const [showHomeworld, setShowHomeworld] =useState(false);
   
-  console.log("Character's Homeworld URL:", character.homeworld);
-  console.log("Planets Array:", planets);
+  // console.log("Character's Homeworld URL:", character.homeworld);
+  // console.log("Planets Array:", planets);
 
   const homeworldName = planets.find(planet => planet.id === character.homeworld)?.name || 'Unknown';
   
@@ -19,10 +19,10 @@ function Character({character,planets}) { // ❗ Add the props
     style={{ border: '1px solid #ccc', margin: '10px', padding: '10px', borderRadius: '5px' }} 
     onClick={toggleHomeworld} // Toggle the planet display on click
   >
-    <h3>{character.name}</h3>
+    <h3 className="character-name">{character.name}</h3>
     <p>Gender: {character.gender}</p>
     <p>Birth Year: {character.birth_year}</p>
-    {showHomeworld && <p>Homeworld: {homeworldName}</p>}  {/* Conditionally render homeworld name */}
+    {showHomeworld && <p className='character-planet'>Homeworld: {homeworldName}</p>}  {/* Conditionally render homeworld name */}
   </div>
   )
 } 
